@@ -1,0 +1,12 @@
+{
+	"name": "casterbot",
+	"verion": "1.0.0",
+	"description": "Multi-purpose Discord bot",
+	"main": "bot.js",
+	"author": "Mingrun He & Siddharth Gupta",
+	"depedencies": {},
+	"dependencies": {
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"winston": "^3.2.1"
+	}
+}
