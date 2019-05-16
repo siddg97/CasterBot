@@ -30,8 +30,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 	
 `{
 	"cod": 429,
-	"message": "Your account is temporary blocked due to exceeding of requests limitation of your
-	subscription type. Please choose the proper subscription http://openweathermap.org/price"
+	"message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
 }
 `
 - Examples of API Calls:
@@ -102,17 +101,22 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 
 # Temperature is available in Fahrenheit, Celsius and Kelvin units.
 
-  >For temperature in Fahrenheit use units=imperial
-  >For temperature in Celsius use units=metric
-  >Temperature in Kelvin is used by default, no need to use units parameter in API call
-  >List of all API parameters with units openweathermap.org/weather-data
+  - For temperature in Fahrenheit use 
+  	> units=imperial
+ 
+  - For temperature in Celsius use 
+  	>units=metric
+  
+  #### Temperature in Kelvin is used by default, no need to use units parameter in API call
+  
+  - List of all API parameters with units __openweathermap.org/weather-data__
 	**_Syntax_**:
 		api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`
 
 	- `unitFormat` = "imperial" or "metric"
 
 `       
-# Darrick He
-#     &
-# Siddharth Gupta
+## Darrick He
+##     &
+## Siddharth Gupta
 `
