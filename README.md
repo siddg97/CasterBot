@@ -201,6 +201,132 @@ function responseToJSON(response) {
 
 ```
 
+## discord.io API Usage:
+
+- ### Installation:
+	- In your terminal, navigate to the root directory of the repository and run the command:
+> `npm install discord.io --save`
+
+- Running:
+
+```
+
+// Create the Discord object
+var Discord = require('discord.io');
+
+// Create the Bot object
+var Bot = new Discord.Client({
+	autorun: true,
+	token: "CasterBot-token"
+});
+
+// Print message to console after Bot is "online" [Executing]
+Bot.on('ready', function(event){
+	console.log('Logged in as Bot:\n Username: %s - ID: %s', Bot.username, Bot.id);
+});
+
+// After recieveing message Bot executes this function
+Bot.on('message', function(user, userID, channelID, message, event) {
+	if(message === "some-prompt") {
+		// Do Something: Most likely send a message or call some other fucntions etc.
+		Bot.sendMessage({
+			to: channelID,
+			message: "some-message"
+		});
+	}
+});
+
+```
+
+- About the API: 
+	- Constructor:
+		- 4 members:
+			1. `token` : __[Required]__ CasterBot account Token
+			2. `autorun`: __[Optional]__ if `true` then Bot connects automaically, else need to call Bot.connect(). Default value is `false`.
+			3. `messageCacheLimit` : __[Optional]__ number of messages to store in background. Range 0 [no Cache] to null [infintie cache].
+			4. `shard` : __[Optional]__ array of 2 numbers [`shardID`,`# of shards`].
+			
+			
+		```
+		// EXAMPLE:
+		new Discord.Client({
+			token:"token",
+			autorun: false,
+			messageCacheLimit: 50,
+			shard: [0, 2]
+		});
+
+		```
+	- Properties: __[non-method members]__
+
+		| Property | Type | Description |
+		| --- | --- | --- |
+		| `id` | `String` | Client's iD as a string |
+		| `username` | `String` | CLient's username |
+		| `email` | `String` | Client's email |
+		| `discriminator` | 'Number' | 4 digit number to differentiate users with the same username |
+		| `avatar` | `String` | Clients avatar hash |
+		| `bot` | `Boolean` | Indicates a bot or a user |
+		| `verified` | `Boolean` | Discord verification state |
+		| `connected` | `Boolean` | Connection status |
+		| `presenceStatus` | `String` | "ofline", "idle" or "online" |
+
+	- Methods:
+
+		| Method | Syntax | Description |
+		| --- | --- | --- |
+		| `sendMessage` | `bot.sendMessage({opts}, callback);` | send a message to a channel or userID |
+		| `uploadFile` | `bot.uploadFile({opts}, callback);` | Upload to a given channelID or UserID |
+		| `getMessage` | `bot.getMessage({opts}, callback);` | get a message from a given channel |
+		| `getMessages`| `bot.getMessages({opts}, callback);` | get an array of messages from given channel |
+		| `simulateTyping` | `bot.simulateTyping(channelID, callback);` | Simulate the bot typing in the given channel |
+
+		```
+
+		// opts for sendMessage(): [callback is optional]
+		{
+			to : "channelID/User ID",
+			message : "some-message",
+			tts : "optional boolean - speak message by Discord or not",
+			typing : "optional boolean -typing or not typing",
+		}
+
+		// opts for getMessage(): [callback is optional]
+		{
+			channelID: "channelID/UserID",
+			messageID: "messageID"
+		}
+
+		// opts for getMessages(): [callback is optional]
+		{
+			channelID: "channelID/UserID",
+			before: "messageID" [OPTIONAL]
+			after: "messageID" [OPTIONAL],
+			limit: "some-number" [OPTIONAL - DEFAULT = 50; MAX = 100]
+		}
+
+		// opts for uploadFile(): [callback is optional]
+		{
+			to: "channelID/UserID",
+			file: "filename/buffer",
+			filename: "name" [OPTIONAL]
+			message: "message along with file" [OPTIONAL]
+		}
+
+
+		```
+
+	- Events:
+
+		| Event | Syntax | Description |
+		| --- | --- | --- |
+		| `ready` | `client.on('ready', function(event){// Do Something});` | Signals library has connected, recieved and sorted all immediate data and is now ready |
+		| `message` | `client.on('message', function(user, userID, channelID, message, event) {// Do something});` | **user**: username, **userID**: userID, **channelID**: channelID, **message**: "message-recieved" |
+
+	- More on __discord.io__ [here](https://izy521.gitbooks.io/discord-io/content/)
+
+
+
 ### Documentation By :-
 >Siddharth Gupta
 
