@@ -45,7 +45,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 ## NOTE: 
 - It is recommended to use `cityId`instead of `cityName`. We are going to use `cityName` and `cityId` as key-value pairs and will look up `city.list.json` for a coressponding `cityId`. If `cityId` is **NOT** found then we use the API call with `cityName`. we can call API with a `cityId` as follows:
 
--**_Syntax_**:
+- **_Syntax_**:
 	- `api.openweathermap.org/data/2.5/weather?id=`cityId`&appid=`appId
 - E.g.
 	> api.openweathermap.org/data/2.5/weather?id=2172797&appid=`**********`
@@ -101,7 +101,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 	"name": City Name
 	"cod": Internal parameter
   }
-
+```
 # Temperature is available in Fahrenheit, Celsius and Kelvin units.
 
   - For temperature in Fahrenheit use 
@@ -114,7 +114,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
   
   - List of all API parameters with units is avialable [here](openweathermap.org/weather-data)
 
--**_Syntax_**:
+- **_Syntax_**:
 	- `api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`&appid=`appId
 	- `unitFormat` = "imperial" or "metric"
 
