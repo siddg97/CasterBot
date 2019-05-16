@@ -6,6 +6,5 @@
 	"author": "Mingrun He & Siddharth Gupta",
 	"dependencies": {
 		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-		"winston": "^3.2.1"
 	}
 }

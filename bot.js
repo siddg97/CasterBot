@@ -1,13 +1,6 @@
 var Discord = require('discord.io');
-var logger = require('winston');
 var auth = require('./auth.json');
 
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(new logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
 
 // Initialize Discord Bot
 var bot = new Discord.Client({
@@ -16,9 +9,9 @@ var bot = new Discord.Client({
 });
 
 bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+    console.log('Connected\n');
+    console.log('Logged in as:\n ');
+    console.log('Username: ' + bot.username + ' - (ID: ' + bot.id + ')');
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
@@ -36,12 +29,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'looney!'
                 });
+                break;
             case 'weather':
                 bot.sendMessage({
                     to: channelID,
                     message: 'read command: $weather'
                 });
-            break;
+                break;
             // Just add any case commands if you want to..
          }
      }
