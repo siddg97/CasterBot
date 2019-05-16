@@ -37,16 +37,16 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 - Examples of API Calls:
 	1. OWM Current Data API: Get current weather data for a certain `cityName`.
 		**_Syntax_**:
-			api.openweathermap.org/data/2.5/weather?q=`cityName`
+			api.openweathermap.org/data/2.5/weather?q=`cityName`&appid=`appId`
 		E.g.
-		> api.openweathermap.org/data/2.5/weather?q=London
+		> api.openweathermap.org/data/2.5/weather?q=London&appid=`**********`
 
 ## NOTE: 
 - It is recommended to use `cityId`instead of `cityName`. We are going to use `cityName` and `cityId` as key-value pairs and will look up `city.list.json` for a coressponding `cityId`. If `cityId` is **NOT** found then we use the API call with `cityName`. we can call API with a `cityId` as follows:
 	**_Syntax_**:
-		api.openweathermap.org/data/2.5/weather?id=`cityId`
+		api.openweathermap.org/data/2.5/weather?id=`cityId`&appid=`appId`
 	E.g.
-	> api.openweathermap.org/data/2.5/weather?id=2172797
+	> api.openweathermap.org/data/2.5/weather?id=2172797&appid=`**********`
 		
 - Format of JSON response:
   ```
@@ -110,9 +110,9 @@ Discord Bot Project - Siddharth Gupta & Darrick He
   
   #### Temperature in Kelvin is used by default, no need to use units parameter in API call
   
-  - List of all API parameters with units __openweathermap.org/weather-data__
+  - List of all API parameters with units is avialable [here](openweathermap.org/weather-data)
 	**_Syntax_**:
-		api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`
+		api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`&appid=`appId`
 
 	- `unitFormat` = "imperial" or "metric"
 
