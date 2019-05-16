@@ -14,9 +14,9 @@ Discord Bot Project - Siddharth Gupta & Darrick He
   5. __$cast for tomorrow `cityName`__ : CasterBot returns next days weather stats
 
 
-## Documentation(s)
-  - https://izy521.gitbooks.io/discord-io/content/ - Discord API
-  - https://openweathermap.org/appid - OpenWeatherMap API
+## Documentation(s) of API(s):
+  - discord.io - __https://izy521.gitbooks.io/discord-io/content/__ - * *Discord API* *
+  - OWM - __https://openweathermap.org/appid__ - * *OpenWeatherMap API* *
 
 ## OWM API:
 - Code of Conduct OWM:
