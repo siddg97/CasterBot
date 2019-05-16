@@ -3,9 +3,9 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 
 ## File Architecture:
   - 3 files:
-    - **auth.json**: Contains the bot Token.
-    - **package.json**: Contains program description for node.js. Contains name, description, scripts etc.
-    - **bot.js**: Main chat bot subroutine
+    - **`auth.json`**: Contains the bot Token.
+    - **`package.json`**: Contains program description for node.js. Contains name, description, scripts etc.
+    - **`bot.js`**: Main chat bot subroutine
 ## User stories:
   1. __$`cityName`__ : CasterBot returns the temperature[Kelvin], humidity and a weather icon.
   2. __$`cityName` celsius__ : CasterBot returns Temperature[in Celsius], humidity and a weather icon.
@@ -20,6 +20,6 @@ Discord Bot Project - Siddharth Gupta & Darrick He
  
 ```
 Darrick He
-&
+     &
 Siddharth Gupta
 ```
