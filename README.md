@@ -21,7 +21,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 ## OWM API:
 - Code of Conduct OWM:
 	- Not recommended to use more than once every 10 minutes due to data being updated on server in 10 minute increments
-	- server name __`api.openweathermap.org`__.**NEVER** use the IP address of the server.
+	- server name __`api.openweathermap.org`__. **NEVER** use the IP address of the server.
 	- Make API call using `cityID` if possible instead cityName, coordinates and zipcode. List of city ids is in the __`city.list.json`__ file
 	-In the words of the OWM website:
 	>Please, mind that Free and Startup accounts have limited service availability. If you do not receive a response from the API, please, wait at least for 10 min and then repeat your request. We also recommend you to store your previous request.
@@ -29,10 +29,10 @@ Discord Bot Project - Siddharth Gupta & Darrick He
 	>After a certain amount of API call we will get a block from OWM and we will requiere to switch to a paid subscription. Block will be notified using a response to an API call. Respone format:
 	
 ```
-{
+    {
 	"cod": 429,
 	"message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
-}
+    }
 ```
 - Examples of API Calls:
 	1. OWM Current Data API: Get current weather data for a certain `cityName`.
