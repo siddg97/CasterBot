@@ -1,5 +1,6 @@
 # CasterBot
-Discord Bot Project - Siddharth Gupta & Darrick He
+- Discord Bot Project - Siddharth Gupta & Darrick He
+- We live in a city called Raincouver where we need to worry about sudden weather changes and we thought it would be nice to implement our own discord bot to help everyone out with this issue.
 
 ## File Architecture:
   - 3 files:
@@ -12,6 +13,7 @@ Discord Bot Project - Siddharth Gupta & Darrick He
   3. __$`cityName` farenheit__ : CasterBot returns Temperature[in Farenheit], humidity and a weather icon.
   4. __$five day cast `cityName`__ : CasterBot returns next 5 days of weather stats
   5. __$cast for tomorrow `cityName`__ : CasterBot returns next days weather stats
+  6. __?umbrella today `cityName`__ : CasterBot return a "carry an umbrella, you might need it!" if its raining, else returns "dont think so"
 
 
 ## Documentation(s) of API(s):
