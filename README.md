@@ -121,85 +121,31 @@
 	- `unitFormat` = "imperial" or "metric"
 
 
-## AJAX HTTP Call to get data from OWM [The Atomic unit of the OWM API Call]
+## HTTP Call to get data from OWM [The Atomic unit of the OWM API Call]
 
-- AJAX is one of the most traditional ways to make an HTTP request. Data is sent using the `POST` method and data can be recieved using the `GET` method.
+- Data is sent using the `POST` method and data can be recieved using the `GET` method.
 
 - __We are going to be using a `GET` request__
 
-- Steps for an HTTP call in AJAX:
-	1. __Initialize a new `XMLHttpRequest()` method__
-	2. __Specify URL endpoint [destination] and specify HTTP method [`GET` in our case]__
-	3. __Use `open()` method to bind HTTP method and URL__
-	4. __Call `send()` method to ~~"Shoot your shot"~~ send your request__
-
-- We record the HTTP response by using the `onreadystatechange` property of `XMLHttpRequest`. `onreadystatechange` consists the __event handler__ to be executed when `readystatechanged` event occurs.
-
-- `onreadystatechange` has 2 methods which we can use to check status of our HTTP request:
-	- `readyState` __[this.readyState]__ : Return state of the `XMLHttpRequest` Client
-
-		| Return Val | State | Inference |
-		| --- | --- | --- |
-		| 0 | **UNSENT** | `open()` not been called yet |
-		| 1 | **OPENED** | `open()` has been called |
-		| 2 | **HEADERS_RECIEVED** | `send()` has been called |
-		| 3 | **LOADING** | Downloading data to `responseText` |
-		| 4 | **DONE** | Download complete |
-	
-	- `status` __[this.status]__ : Returns a status code of the HTTP response
-
-		| Return Val | Status |
-		| --- | --- |
-		| 0 | **UNSENT** or **OPENED** |
-		| 200 | **LOADING** or **DONE** |
-	- More about `XMLHttpRequest` objects [here](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#Constructor)
-
-	- `responseText`__[this.responseText]__ : Returns the string returned by the HTTP request
-
-## HTTP Request Example:
-```
-const HTTP = new XMLHttpRequest();
-const url = "api-call-url";
-HTTP.open("GET", url);
-HTTP.send();
-
-HTTP.onreadstatechange = () => {
-	if(this.readyState == 4 && this.status == 200){
-		// Do whatever with data
-	}
-}
-
-```
-
-### NOTE: 
-- readyState=4 means __download complete__ and status=200 means __DONE__
-
-- Can put the above code snippet ina function which takes 2 inputs :- 
-	1. `url` : url for the api call [Good practice to get it from a function]
-	2. `callback` : A callback function to pass the response to [We will use it to parse the response to a JSON object]
-
-- Example:
-```
-// REQUESTING FUNCTION
-function callAPI(url, callback) {
-	console.log("Calling API");
-	var hReq = new XMLHttpRequest();
-	hReq.onreadystatechange = () => {
-		if(this.readyState == 4 && this.status == 200){
-			callback(hReq.responseText);
+- Steps for an HTTP call for CasterBot:
+	1. Make sure you have the __request__ mosule installed through npm and included in the __package.json__ file
+	 	To install (and save to package.json) run the command below in the terminal (in the root diresctory of CasterBot)
+		> ` npm install request --save `
+	2. Import the __request__ module where you want to make a call to an API
+		> ` let request = require('request'); `
+	3. Set up the request function with a callback function:
+	```
+	// url needs to be parsed before passing through the function
+	request(url, function(err, response, body) {
+		if(err){ // print error message if request returns an error
+			console.log('ERROR:',error);
 		}
-		hReq.open("GET", url, true); // true for asynchronous
-		hReq.send();
-	}
-}
-
-// CALLBACK FUNCTION
-function responseToJSON(response) {
-	let jsonObject = JSON.parse(response);
-	// parse jsonObject to get the requiered data 
-}
-
-```
+		else {	// printing out the json response to the console
+			console.log(body);
+		}
+	});
+	
+	```
 
 ## discord.io API Usage:
 
