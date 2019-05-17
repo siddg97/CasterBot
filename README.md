@@ -5,10 +5,34 @@
 - __We are still in the process of developing CasterBot, so not all the user stories are implemented yet.__
 
 ## File Architecture:
-  - 3 files:
+  - ### Main files:
     - **`auth.json`**: Contains the bot Token.
     - **`package.json`**: Contains program description for node.js. Contains name, description, scripts etc.
     - **`bot.js`**: Main chat bot subroutine
+    - **`modules.js`**: Contains modules used by Casterbot [In the __modules__ DIRECTORY]
+    - **`auth.json`**: Contains API Key and botID token
+    - **`city.list.json`**: Array of cities
+    - **`commands.json`**: Array of supported commands
+    
+  - ### Project Directory Tree:
+  	```bash
+	CasterBot
+	   ├── data
+	   │	├── auth.json
+	   |	├── city.list.json
+	   |	└── commands.json
+	   |
+	   ├── modules
+	   |	└── modules.js
+	   │
+	   ├── bot.js
+	   ├── package.json
+	   ├── package-lock.json
+	   ├── README.md
+	   └── .gitignore
+
+	```
+ 
 ## User stories:
   1. __?weather `cityName`__ : CasterBot returns the temperature[Kelvin], humidity and a weather icon.
   2. __?weather celsius `cityName`__ : CasterBot returns Temperature[in Celsius], humidity and a weather icon.
@@ -16,7 +40,6 @@
   4. __?five day cast `cityName`__ : CasterBot returns next 5 days of weather stats
   5. __?cast for tomorrow `cityName`__ : CasterBot returns next days weather stats
   6. __?umbrella today `cityName`__ : CasterBot return a "carry an umbrella, you might need it!" if its raining, else returns "dont think so"
-
 
 ## Documentation(s) of API(s):
   - discord.io - __https://izy521.gitbooks.io/discord-io/content/__ - * *Discord API* *
@@ -30,9 +53,8 @@
 	-__In the words of the OWM website:__
 	>Please, mind that Free and Startup accounts have limited service availability. If you do not receive a response from the API, please, wait at least for 10 min and then repeat your request. We also recommend you to store your previous request.
 	
-	- __OWM subscription:__
-	>After a certain amount of API call we will get a block from OWM and we will requiere to switch to a paid subscription. Block will be notified using a response to an API call. Respone format:
-	
+- __OWM subscription:__
+>After a certain amount of API call we will get a block from OWM and we will requiere to switch to a paid subscription. Block will be notified using a response to an API call. Respone format:
 	```
 	    {
 		"cod": 429,
