@@ -51,7 +51,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 else {  // CasterBot generates meesage and send it
                     var weather = JSON.parse(body);
                     //console.log(body); //DEBUGGING*****************
-                    let msg = modules.getMessage(weather);
+                    let msg = modules.getMessage(weather);  // generate message 
                     bot.sendMessage({
                         to: channelID,
                         message: msg,
