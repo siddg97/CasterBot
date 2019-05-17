@@ -1,6 +1,8 @@
 # CasterBot
-- Discord Bot Project - Siddharth Gupta & Darrick He
+- Discord Bot Project - __Siddharth Gupta & Darrick He__
 - We live in a city called Raincouver where we need to worry about sudden weather changes and we thought it would be nice to implement our own discord bot to help everyone out with this issue.
+- CasterBot is a your friendly neighbhorhood discord chat bot that helps checking the weather conditions of a city easier for discord users.
+- __We are still in the process of developing CasterBot, so not all the user stories are implemented yet.__
 
 ## File Architecture:
   - 3 files:
@@ -21,38 +23,41 @@
   - OWM - __https://openweathermap.org/appid__ - * *OpenWeatherMap API* *
 
 ## OWM API:
-- Code of Conduct OWM:
+- __Code of Conduct OWM:__
 	- Not recommended to use more than once every 10 minutes due to data being updated on server in 10 minute increments
 	- server name __`api.openweathermap.org`__. **NEVER** use the IP address of the server.
 	- Make API call using `cityID` if possible instead cityName, coordinates and zipcode. List of city ids is in the __`city.list.json`__ file
-	-In the words of the OWM website:
+	-__In the words of the OWM website:__
 	>Please, mind that Free and Startup accounts have limited service availability. If you do not receive a response from the API, please, wait at least for 10 min and then repeat your request. We also recommend you to store your previous request.
-	- OWM subscription:
+	
+	- __OWM subscription:__
 	>After a certain amount of API call we will get a block from OWM and we will requiere to switch to a paid subscription. Block will be notified using a response to an API call. Respone format:
 	
-```
-    {
-	"cod": 429,
-	"message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
-    }
-```
-- Examples of API Calls:
+	```
+	    {
+		"cod": 429,
+		"message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
+	    }
+	```
+- __Examples of API Calls:__
 	1. OWM Current Data API: Get current weather data for a certain `cityName`.
-
 - **_Syntax_**:
-	- `api.openweathermap.org/data/2.5/weather?q=`cityName`&appid=`appId``
+> __api.openweathermap.org/data/2.5/weather?q=`cityName`&appid=`appId`__
+
 - E.g.
-	> api.openweathermap.org/data/2.5/weather?q=London&appid=`**********`
+> api.openweathermap.org/data/2.5/weather?q=London&appid=`**********`
 
 ## NOTE: 
 - It is recommended to use `cityId`instead of `cityName`. We are going to use `cityName` and `cityId` as key-value pairs and will look up `city.list.json` for a coressponding `cityId`. If `cityId` is **NOT** found then we use the API call with `cityName`. we can call API with a `cityId` as follows:
 
 - **_Syntax_**:
-	- `api.openweathermap.org/data/2.5/weather?id=`cityId`&appid=`appId
+- __api.openweathermap.org/data/2.5/weather?id=`cityId`&appid=`appId`__
+
 - E.g.
-	> api.openweathermap.org/data/2.5/weather?id=2172797&appid=`**********`
+> api.openweathermap.org/data/2.5/weather?id=2172797&appid=`**********`
 		
 ## Format of JSON response:
+  
   ```
   {
 	"coord": {
@@ -103,27 +108,28 @@
 	"name": City Name
 	"cod": Internal parameter
   }
+  
 ```
-# Temperature is available in Fahrenheit, Celsius and Kelvin units.
+  ### Temperature is available in Fahrenheit, Celsius and Kelvin units.
 
-  - For temperature in Fahrenheit use 
+  - __For temperature in Fahrenheit use__ 
   	> units=imperial
  
-  - For temperature in Celsius use 
+  - __For temperature in Celsius use__ 
   	>units=metric
   
   #### Temperature in Kelvin is used by default, no need to use units parameter in API call
   
-  - List of all API parameters with units is avialable [here](openweathermap.org/weather-data)
+  - List of all API parameters with units is avialable __[here](openweathermap.org/weather-data)__
 
 - **_Syntax_**:
-	- `api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`&appid=`appId
-	- `unitFormat` = "imperial" or "metric"
+  __api.openweathermap.org/data/2.5/find?q=`cityId`&units=`unitFormat`&appid=`appId`__
+	- `unitFormat` = __"imperial"__ or __"metric"__
 
 
-## HTTP Call to get data from OWM [The Atomic unit of the OWM API Call]
+# HTTP Call to get data from OWM [The Atomic unit of the OWM API Call]
 
-- Data is sent using the `POST` method and data can be recieved using the `GET` method.
+- Data is __sent__ using the `POST` method and data can be __recieved__ using the `GET` method.
 
 - __We are going to be using a `GET` request__
 
@@ -134,58 +140,59 @@
 	2. Import the __request__ module where you want to make a call to an API
 		> ` let request = require('request'); `
 	3. Set up the request function with a callback function:
-	```
-	// url needs to be parsed before passing through the function
-	request(url, function(err, response, body) {
-		if(err){ // print error message if request returns an error
-			console.log('ERROR:',error);
-		}
-		else {	// printing out the json response to the console
-			console.log(body);
-		}
-	});
-	
-	```
+		```
+		let request = require('request'); 	// Import request object
+		// url needs to be parsed before passing through the function
+		request(url, function(err, response, body) {
+			if(err){ 		// print error message if request returns an error
+				console.log('ERROR:',error);
+			}
+			else {			// printing out the json response to the console
+				console.log(body);
+			}
+		});
+
+		```
 
 ## discord.io API Usage:
 
-- ### Installation:
+- __Installation:__
 	- In your terminal, navigate to the root directory of the repository and run the command:
 > `npm install discord.io --save`
 
-- Running:
+- __Running:__
 
-```
+	```
 
-// Create the Discord object
-var Discord = require('discord.io');
+	// Create the Discord object
+	var Discord = require('discord.io');
 
-// Create the Bot object
-var Bot = new Discord.Client({
-	autorun: true,
-	token: "CasterBot-token"
-});
+	// Create the Bot object
+	var Bot = new Discord.Client({
+		autorun: true,
+		token: "CasterBot-token"
+	});
 
-// Print message to console after Bot is "online" [Executing]
-Bot.on('ready', function(event){
-	console.log('Logged in as Bot:\n Username: %s - ID: %s', Bot.username, Bot.id);
-});
+	// Print message to console after Bot is "online" [Executing]
+	Bot.on('ready', function(event){
+		console.log('Logged in as Bot:\n Username: %s - ID: %s', Bot.username, Bot.id);
+	});
 
-// After recieveing message Bot executes this function
-Bot.on('message', function(user, userID, channelID, message, event) {
-	if(message === "some-prompt") {
-		// Do Something: Most likely send a message or call some other fucntions etc.
-		Bot.sendMessage({
-			to: channelID,
-			message: "some-message"
-		});
-	}
-});
+	// After recieveing message Bot executes this function
+	Bot.on('message', function(user, userID, channelID, message, event) {
+		if(message === "some-prompt") {
+			// Do Something: Most likely send a message or call some other fucntions etc.
+			Bot.sendMessage({
+				to: channelID,
+				message: "some-message"
+			});
+		}
+	});
 
-```
+	```
 
 - About the API: 
-	- Constructor:
+	- __Constructor:__
 		- 4 members:
 			1. `token` : __[Required]__ CasterBot account Token
 			2. `autorun`: __[Optional]__ if `true` then Bot connects automaically, else need to call Bot.connect(). Default value is `false`.
@@ -203,7 +210,7 @@ Bot.on('message', function(user, userID, channelID, message, event) {
 		});
 
 		```
-	- Properties: __[non-method members]__
+	- __Properties:__ __[non-method members]__
 
 		| Property | Type | Description |
 		| --- | --- | --- |
@@ -217,7 +224,7 @@ Bot.on('message', function(user, userID, channelID, message, event) {
 		| `connected` | `Boolean` | Connection status |
 		| `presenceStatus` | `String` | "ofline", "idle" or "online" |
 
-	- Methods:
+	- __Methods:__
 
 		| Method | Syntax | Description |
 		| --- | --- | --- |
@@ -262,7 +269,7 @@ Bot.on('message', function(user, userID, channelID, message, event) {
 
 		```
 
-	- Events:
+	- __Events:__
 
 		| Event | Syntax | Description |
 		| --- | --- | --- |
@@ -274,5 +281,5 @@ Bot.on('message', function(user, userID, channelID, message, event) {
 
 
 ### Documentation By :-
->Siddharth Gupta
+> __Siddharth Gupta__
 
