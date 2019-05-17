@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var auth = require('./auth.json');
 
+
 // Initialize Discord Bot
 var bot = new Discord.Client({
    token: auth.token,
@@ -8,15 +9,16 @@ var bot = new Discord.Client({
 });
 
 bot.on('ready', function (evt) {
-    console.log('Connected!!!\n');
+
+    console.log('\nConnected!!!\n');
     console.log('Logged in as: ');
     console.log(bot.username + ' - (ID: ' + bot.id + ')');
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
-    if (message.substring(0, 1) == '$') {
+    // It will listen for messages that will start with `?`
+    if (message.substring(0, 1) == '?') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
        
