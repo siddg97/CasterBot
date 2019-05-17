@@ -5,6 +5,7 @@
 	"main": "bot.js",
 	"author": "Mingrun He & Siddharth Gupta",
 	"dependencies": {
-		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6"
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"request": "^2.88.0"
 	}
 }

@@ -1,0 +1,8 @@
+[
+	["weather"],
+	["weather", "celsius"],
+	["weather", "fahrenheit"],
+	["five", "day", "cast"],
+	["cast", "for", "tmr"],
+	["umbrella", "today"]
+]
