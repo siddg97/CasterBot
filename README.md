@@ -39,7 +39,7 @@
 
 3. Once you have done both steps 1 and 2. Run the following command in the root directory of your repository.
    > ` npm install `
-   This will install all the requiered dependencies you need to run CasterBot.
+  This will install all the requiered dependencies you need to run CasterBot.
    
 4. Now while in the root directory run the command below to start running CasterBot.
    > ` node bot.js `
@@ -60,8 +60,8 @@
 
 
 ## Documentation(s) of API(s):
-  - discord.io - __https://izy521.gitbooks.io/discord-io/content/__ - * *Discord API* *
-  - OWM - __https://openweathermap.org/appid__ - * *OpenWeatherMap API* *
+  - [__discord.io__](https://izy521.gitbooks.io/discord-io/content/) - *Discord API*
+  - [__Open Weather Map__](https://openweathermap.org/appid) - *OpenWeatherMap API*
 
 
 ## OWM (Open Weather Map) API:
@@ -74,11 +74,13 @@
 	
 - __OWM subscription:__
 >After a certain amount of API call we will get a block from OWM and we will requiere to switch to a paid subscription. Block will be notified using a response to an API call. Respone format:
+	
 	```
-	    {
-		"cod": 429,
-		"message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
-	    }
+	{
+	   "cod": 429,
+	   "message": "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription http://openweathermap.org/price"
+	}
+	
 	```
 - __Examples of API Calls:__
 	1. OWM Current Data API: Get current weather data for a certain `cityName`.
@@ -322,7 +324,5 @@
 
 
 
-### Documentation By :-
->
-> __Siddharth Gupta__
->
+# Documentation By :-
+> Siddharth Gupta
