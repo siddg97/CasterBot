@@ -32,20 +32,39 @@
 	   └── .gitignore
 
 	```
- 
+## Installation :
+1. Clone repository onto your system.
+
+2. Make sure you have Node.js installed. You can download it from [here.](https://nodejs.org/en/download/)
+
+3. Once you have done both steps 1 and 2. Run the following command in the root directory of your repository.
+   > ` npm install `
+   This will install all the requiered dependencies you need to run CasterBot.
+   
+4. Now while in the root directory run the command below to start running CasterBot.
+   > ` node bot.js `
+
+
 ## User stories:
   1. __?weather `cityName`__ : CasterBot returns the temperature[Kelvin], humidity and a weather icon.
+  
   2. __?weather celsius `cityName`__ : CasterBot returns Temperature[in Celsius], humidity and a weather icon.
+  
   3. __?weather fahrenheit `cityName`__ : CasterBot returns Temperature[in Farenheit], humidity and a weather icon.
+  
   4. __?five day cast `cityName`__ : CasterBot returns next 5 days of weather stats
+  
   5. __?cast for tomorrow `cityName`__ : CasterBot returns next days weather stats
+  
   6. __?umbrella today `cityName`__ : CasterBot return a "carry an umbrella, you might need it!" if its raining, else returns "dont think so"
+
 
 ## Documentation(s) of API(s):
   - discord.io - __https://izy521.gitbooks.io/discord-io/content/__ - * *Discord API* *
   - OWM - __https://openweathermap.org/appid__ - * *OpenWeatherMap API* *
 
-## OWM API:
+
+## OWM (Open Weather Map) API:
 - __Code of Conduct OWM:__
 	- Not recommended to use more than once every 10 minutes due to data being updated on server in 10 minute increments
 	- server name __`api.openweathermap.org`__. **NEVER** use the IP address of the server.
@@ -176,6 +195,7 @@
 
 		```
 
+
 ## discord.io API Usage:
 
 - __Installation:__
@@ -213,7 +233,7 @@
 
 	```
 
-- About the API: 
+- **About the API:** 
 	- __Constructor:__
 		- 4 members:
 			1. `token` : __[Required]__ CasterBot account Token
