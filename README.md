@@ -66,10 +66,10 @@
 
 ## OWM (Open Weather Map) API:
 - __Code of Conduct OWM:__
-	- Not recommended to use more than once every 10 minutes due to data being updated on server in 10 minute increments
-	- server name __`api.openweathermap.org`__. **NEVER** use the IP address of the server.
-	- Make API call using `cityID` if possible instead cityName, coordinates and zipcode. List of city ids is in the __`city.list.json`__ file
-	-__In the words of the OWM website:__
+	1. Not recommended to use more than once every 10 minutes due to data being updated on server in 10 minute increments
+	2. server name __`api.openweathermap.org`__. **NEVER** use the IP address of the server.
+	3. Make API call using `cityID` if possible instead cityName, coordinates and zipcode. List of city ids is in the __`city.list.json`__ file
+	4. __In the words of the OWM website:__
 	>Please, mind that Free and Startup accounts have limited service availability. If you do not receive a response from the API, please, wait at least for 10 min and then repeat your request. We also recommend you to store your previous request.
 	
 - __OWM subscription:__
