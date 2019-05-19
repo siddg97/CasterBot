@@ -295,8 +295,8 @@
 
 		| Event | Syntax | Description |
 		| --- | --- | --- |
-		| `ready` | `client.on('ready', function(event){// Do Something});` | Signals library has connected, recieved and sorted all immediate data and is now ready |
-		| `message` | `client.on('message', function(user, userID, channelID, message, event) {// Do something});` | **user**: username, **userID**: userID, **channelID**: channelID, **message**: "message-recieved" |
+		| `ready` | `client.on('ready', function(event){// Do Something});  ` | Signals library has connected, recieved and sorted all immediate data and is now ready |
+		| `message` | `client.on('message', function(user, userID, channelID, message, event) {// Do something});`   | **user**: username, **userID**: userID, **channelID**: channelID, **message**: "message-recieved" |
 
 	- More on __discord.io__ [here](https://izy521.gitbooks.io/discord-io/content/)
 
