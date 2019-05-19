@@ -15,7 +15,7 @@
     - **`commands.json`**: Array of supported commands
     
   - ### Project Directory Tree:
-  	```bash
+  	```
 	CasterBot
 	   ├── data
 	   │	├── auth.json
@@ -303,5 +303,6 @@
 
 
 ### Documentation By :-
+>
 > __Siddharth Gupta__
-
+>
