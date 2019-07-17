@@ -5,7 +5,6 @@ var modules = require('./modules/modules.js');  // modules implemented for use b
 
 
 
-
 // Initialize Discord Bot
 var bot = new Discord.Client({
    token: auth.token,
@@ -50,13 +49,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
                 else {  // CasterBot generates meesage and send it
                     var weather = JSON.parse(body);
+                    if(cmdIndex==0){
+                        var unit='k';
+                    }
+                    else if(cmdIndex==1){
+                        var unit='c';
+                    }
+                    else if(cmdIndex==2){
+                        var unit='f';
+                    }
                     //console.log(body); //DEBUGGING*****************
-                    let msg = modules.getMessage(weather);  // generate message 
-                    bot.sendMessage({
+                    let msg = modules.getMessage(weather,unit);  // generate message 
+                    bot.uploadFile({
                         to: channelID,
+                        file:"./data/wicons/"+weather.weather[0].main+".png",
                         message: msg,
-                        typing: true
                     });
+                    
                 }
             });  
         }
