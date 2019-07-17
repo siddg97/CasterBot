@@ -100,5 +100,5 @@ module.exports.getMessage = function(body,unit){
 	let city = body.name;
 	let wmain = body.weather[0].main;
 	let wdesc = body.weather[0].description;
-	return '```Weather in '+city+':```**'+temp+'**  Degree  '+u+'\n**'+humidity+'**  Humidity\n**'+max_temp+'**  Degree  '+u+'  __High__\n**'+min_temp+'**  Degree  '+u+'  __Low__\n**'+pressr+' hPa **  *Sea level Pressure*\n**'+wind_speed+' m/s **  *Wind Speed*\n\n```Conditions: '+wdesc+'```**'+cloudy+'**  *Clouds*';
+	return '```Weather in '+city+':```**'+temp+'**  Degree  '+u+'\n**'+humidity+'**  Humidity\n**'+max_temp+'**  Degree  '+u+'  __High__\n**'+min_temp+'**  Degree  '+u+'  __Low__\n**'+pressr+' hPa **  *Sea level Pressure*\n**'+wind_speed+' m/s **  *Wind Speed*\n\n```Weather Conditions in '+city+':```**'+wmain+'** __'+wdesc+'__\n**'+cloudy+'**  *Clouds*';
 }
