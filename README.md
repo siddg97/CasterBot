@@ -47,11 +47,8 @@
 
 ## User stories:
   1. __?weather `cityName`__ : CasterBot returns the temperature[Kelvin], humidity and a weather icon.
-  
-  2. __?weather celsius `cityName`__ : CasterBot returns Temperature[in Celsius], humidity and a weather icon.
-  
-  3. __?weather fahrenheit `cityName`__ : CasterBot returns Temperature[in Farenheit], humidity and a weather icon.
-  
+  2. __?weather -c `cityName`__ : CasterBot returns Temperature[in Celsius], humidity and a weather icon.
+  3. __?weather -f `cityName`__ : CasterBot returns Temperature[in Farenheit], humidity and a weather icon.
   4. __?five day cast `cityName`__ : CasterBot returns next 5 days of weather stats
   
   5. __?cast for tomorrow `cityName`__ : CasterBot returns next days weather stats

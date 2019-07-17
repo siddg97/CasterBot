@@ -1,7 +1,7 @@
 [
 	["weather"],
-	["weather", "celsius"],
-	["weather", "fahrenheit"],
+	["weather", "-c"],
+	["weather", "-f"],
 	["five", "day", "cast"],
 	["cast", "for", "tmr"],
 	["umbrella", "today"]

@@ -3,6 +3,10 @@
 	"verion": "1.0.0",
 	"description": "Multi-purpose Discord bot",
 	"main": "bot.js",
+	"scripts": {
+		"start": "node bot.js",
+		"dev": "nodemon bot.js"
+	},
 	"author": "Mingrun He & Siddharth Gupta",
 	"dependencies": {
 		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
